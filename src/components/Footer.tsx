@@ -11,14 +11,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo e Descrição */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold font-poppins">A FAVORITA</h3>
-                <p className="text-gray-300">Materiais de Construção</p>
-              </div>
+            <div className="flex items-center">
+              <img 
+                src="/lovable-uploads/d9d468eb-f2ce-4282-b1ca-897521b53f23.png" 
+                alt="A Favorita - Materiais de Construção" 
+                className="h-16 w-auto bg-white p-2 rounded-lg"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed max-w-md">
               Oferecemos tudo o que você precisa em materiais de construção, agropecuária e pesca, 

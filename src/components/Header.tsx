@@ -37,14 +37,12 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-800 font-poppins">A FAVORITA</h1>
-              <p className="text-sm text-gray-600">Materiais de Construção</p>
-            </div>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/d9d468eb-f2ce-4282-b1ca-897521b53f23.png" 
+              alt="A Favorita - Materiais de Construção" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Menu */}
