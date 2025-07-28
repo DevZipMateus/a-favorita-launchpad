@@ -46,18 +46,18 @@ const ProductCarousel = () => {
   );
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4 font-poppins">
-          Um <span className="text-primary-500">Pouco de</span> Nossos Produtos
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-poppins">
+            Um <span className="text-primary-500">Pouco de</span> Nossos Produtos
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Confira nossa galeria de produtos e promoções especiais
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Carousel
             ref={emblaRef}
             className="w-full"
@@ -71,41 +71,39 @@ const ProductCarousel = () => {
               }),
             ]}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 sm:-ml-4">
               {images.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
-                      <div className="aspect-square overflow-hidden">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
+                <CarouselItem key={index} className="pl-2 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            <CarouselPrevious className="hidden sm:flex -left-4 lg:-left-6" />
+            <CarouselNext className="hidden sm:flex -right-4 lg:-right-6" />
           </Carousel>
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-8 rounded-2xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">Visite Nossa Loja!</h3>
-            <p className="text-lg mb-6 opacity-95">
+        <div className="text-center mt-8 sm:mt-12">
+          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-6 sm:p-8 rounded-2xl max-w-4xl mx-auto">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Visite Nossa Loja!</h3>
+            <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 opacity-95">
               Venha conhecer nossa ampla variedade de produtos e aproveite nossas ofertas especiais.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button
                 onClick={() => {
                   const element = document.getElementById('contato');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-white text-primary-500 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold"
+                className="bg-white text-primary-500 px-6 sm:px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold text-sm sm:text-base w-full sm:w-auto"
               >
                 Entre em Contato
               </button>
@@ -114,7 +112,7 @@ const ProductCarousel = () => {
                   const element = document.getElementById('localizacao');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-200 font-semibold"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-200 font-semibold text-sm sm:text-base w-full sm:w-auto"
               >
                 Ver Localização
               </button>

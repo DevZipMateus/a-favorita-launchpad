@@ -12,10 +12,10 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={openWhatsApp}
-      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 z-50 animate-pulse hover:animate-none transform hover:scale-110"
+      className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 z-50 animate-pulse hover:animate-none transform hover:scale-110"
       aria-label="Contato via WhatsApp"
     >
-      <MessageCircle size={28} />
+      <MessageCircle size={24} className="sm:w-7 sm:h-7" />
     </button>
   );
 };
