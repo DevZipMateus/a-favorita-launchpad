@@ -15,10 +15,7 @@ const Hero = () => {
       id="inicio" 
       className="min-h-screen relative flex items-center"
       style={{
-        backgroundImage: `url('/lovable-uploads/e742f591-de28-4abf-85fc-397eb94317db.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundColor: '#06264a'
       }}
     >
       {/* Overlay para melhorar a legibilidade */}
