@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-blue-50/95 backdrop-blur-md shadow-lg' : 'bg-blue-50/90'
     }`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -51,10 +51,10 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-primary-500 font-medium transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             <button
@@ -67,7 +67,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -82,7 +82,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-primary-500 hover:bg-gray-50 transition-colors duration-200"
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-blue-50 transition-colors duration-200"
               >
                 {item.label}
               </button>
