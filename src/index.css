@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,19 +40,12 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -101,5 +95,104 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Improved scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better focus styles */
+  *:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+
+  /* Improved text rendering */
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Responsive text selection */
+  ::selection {
+    @apply bg-primary-500/20;
+  }
+
+  /* Improved button interactions */
+  button {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Better responsive images */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Improved responsive videos */
+  video {
+    @apply w-full h-auto;
+  }
+
+  /* Better responsive containers */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Improved responsive spacing */
+  .section-spacing {
+    @apply py-16 sm:py-20 lg:py-24 xl:py-32;
+  }
+
+  /* Better responsive typography */
+  .heading-responsive {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl;
+  }
+
+  /* Improved responsive grid gaps */
+  .grid-responsive {
+    @apply gap-6 sm:gap-8 lg:gap-10 xl:gap-12;
+  }
+
+  /* Better responsive padding */
+  .padding-responsive {
+    @apply p-4 sm:p-6 lg:p-8 xl:p-10;
+  }
+
+  /* Improved responsive margins */
+  .margin-responsive {
+    @apply m-4 sm:m-6 lg:m-8 xl:m-10;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Improved responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
