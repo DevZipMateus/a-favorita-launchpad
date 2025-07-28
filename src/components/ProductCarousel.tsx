@@ -35,7 +35,7 @@ const ProductCarousel = () => {
       alt: "Máscara de Solda Automática"
     },
     {
-      src: "/lovable-uploads/4f4cc372-7a44-47d7-8440-ea33993fb93f.png",
+      src: "/lovable-uploads/4f4cc372-7a44-47d7-8440ea33993fb93f.png",
       alt: "Loja A Favorita - Fachada"
     }
   ];
@@ -46,18 +46,18 @@ const ProductCarousel = () => {
   );
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 xl:py-32 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8 font-poppins">
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-3 sm:mb-4 lg:mb-6 font-poppins">
             Um <span className="text-primary-500">Pouco de</span> Nossos Produtos
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-3xl mx-auto px-2 leading-relaxed">
             Confira nossa galeria de produtos e promoções especiais
           </p>
         </div>
 
-        <div className="max-w-8xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <Carousel
             ref={emblaRef}
             className="w-full"
@@ -71,39 +71,55 @@ const ProductCarousel = () => {
               }),
             ]}
           >
-            <CarouselContent className="-ml-2 sm:-ml-4 lg:-ml-6 xl:-ml-8">
+            <CarouselContent className="-ml-2 md:-ml-4 lg:-ml-6">
               {images.map((image, index) => (
-                <CarouselItem key={index} className="pl-2 sm:pl-4 lg:pl-6 xl:pl-8 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div className="aspect-square overflow-hidden">
+                <CarouselItem key={index} className="pl-2 md:pl-4 lg:pl-6 basis-full xs:basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div className="relative aspect-square overflow-hidden">
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                        loading="lazy"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div className="p-2 sm:p-3 lg:p-4">
+                      <p className="text-xs sm:text-sm md:text-base text-gray-700 text-center line-clamp-2 leading-tight">
+                        {image.alt}
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex -left-6 lg:-left-8 xl:-left-10" />
-            <CarouselNext className="hidden sm:flex -right-6 lg:-right-8 xl:-right-10" />
+            <CarouselPrevious className="hidden md:flex -left-4 lg:-left-6 xl:-left-8 h-8 w-8 lg:h-10 lg:w-10 xl:h-12 xl:w-12" />
+            <CarouselNext className="hidden md:flex -right-4 lg:-right-6 xl:-right-8 h-8 w-8 lg:h-10 lg:w-10 xl:h-12 xl:w-12" />
           </Carousel>
+          
+          {/* Mobile scroll indicator */}
+          <div className="flex justify-center mt-4 md:hidden">
+            <div className="flex space-x-2">
+              {Array.from({ length: Math.ceil(images.length / 2) }).map((_, index) => (
+                <div key={index} className="w-2 h-2 rounded-full bg-gray-300"></div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
-          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-8 sm:p-10 lg:p-12 xl:p-16 rounded-2xl max-w-5xl mx-auto shadow-xl">
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8">Visite Nossa Loja!</h3>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 sm:mb-8 lg:mb-10 opacity-95 leading-relaxed">
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
+          <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-6 sm:p-8 lg:p-10 xl:p-12 rounded-xl sm:rounded-2xl max-w-4xl mx-auto shadow-xl">
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6">Visite Nossa Loja!</h3>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-4 sm:mb-6 lg:mb-8 opacity-95 leading-relaxed">
               Venha conhecer nossa ampla variedade de produtos e aproveite nossas ofertas especiais.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center">
               <button
                 onClick={() => {
                   const element = document.getElementById('contato');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-white text-primary-500 px-8 sm:px-10 lg:px-12 xl:px-16 py-4 sm:py-5 lg:py-6 rounded-lg hover:bg-gray-100 transition-all duration-200 font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-white text-primary-500 px-6 sm:px-8 lg:px-10 xl:px-12 py-3 sm:py-4 lg:py-5 rounded-lg hover:bg-gray-100 transition-all duration-200 font-semibold text-sm sm:text-base lg:text-lg xl:text-xl w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Entre em Contato
               </button>
@@ -112,7 +128,7 @@ const ProductCarousel = () => {
                   const element = document.getElementById('localizacao');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="border-2 border-white text-white px-8 sm:px-10 lg:px-12 xl:px-16 py-4 sm:py-5 lg:py-6 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-200 font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl w-full sm:w-auto"
+                className="border-2 border-white text-white px-6 sm:px-8 lg:px-10 xl:px-12 py-3 sm:py-4 lg:py-5 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-200 font-semibold text-sm sm:text-base lg:text-lg xl:text-xl w-full sm:w-auto"
               >
                 Ver Localização
               </button>
