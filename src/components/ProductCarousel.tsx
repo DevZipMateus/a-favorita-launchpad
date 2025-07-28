@@ -50,7 +50,7 @@ const ProductCarousel = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800 mb-4 font-poppins">
-            Nossos <span className="text-primary-500">Produtos</span> em Destaque
+          Um <span className="text-primary-500">Pouco de</span> Nossos Produtos
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Confira nossa galeria de produtos e promoções especiais
