@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl font-bold text-white font-poppins leading-tight drop-shadow-lg">
-                A <span className="text-primary-300">FAVORITA</span>
+                <span className="text-primary-500">A</span> <span className="text-primary-300">FAVORITA</span>
               </h1>
               <p className="text-xl text-gray-100 font-medium drop-shadow-md">
                 Materiais de Construção & Agropecuária
@@ -55,11 +55,11 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <div className="flex items-center gap-3">
-                <Phone className="text-primary-300" size={20} />
+                <Phone className="text-white" size={20} />
                 <span className="text-gray-100 drop-shadow-sm">(91) 99171-3205</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="text-primary-300" size={20} />
+                <Mail className="text-white" size={20} />
                 <span className="text-gray-100 drop-shadow-sm">afavoritaloja9@gmail.com</span>
               </div>
             </div>
