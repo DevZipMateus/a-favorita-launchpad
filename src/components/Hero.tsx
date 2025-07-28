@@ -69,42 +69,16 @@ const Hero = () => {
           </div>
 
           <div className="relative animate-slide-in-right">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 space-y-6">
-              <h3 className="text-2xl font-bold text-gray-800 text-center">Nossos Diferenciais</h3>
-              
-              <div className="grid gap-4">
-                <div className="flex items-start gap-3 p-4 bg-primary-50 rounded-lg">
-                  <div className="w-3 h-3 bg-primary-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Produtos de Qualidade</h4>
-                    <p className="text-gray-600">Tubos, conexões, ferramentas e materiais elétricos</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 bg-secondary-50 rounded-lg">
-                  <div className="w-3 h-3 bg-secondary-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Preços Acessíveis</h4>
-                    <p className="text-gray-600">Os melhores preços da região</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 bg-accent-50 rounded-lg">
-                  <div className="w-3 h-3 bg-accent-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Variedade Completa</h4>
-                    <p className="text-gray-600">Construção, agropecuária e pesca</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 bg-primary-50 rounded-lg">
-                  <div className="w-3 h-3 bg-primary-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Atendimento Personalizado</h4>
-                    <p className="text-gray-600">Próximo e atencioso</p>
-                  </div>
-                </div>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <video
+                src="/lovable-uploads/af.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+                style={{ maxHeight: '500px' }}
+              />
             </div>
           </div>
         </div>
