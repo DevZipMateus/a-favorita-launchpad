@@ -68,7 +68,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative animate-slide-in-right mt-12">
+          <div className="relative animate-slide-in-right mt-24">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <video
                 src="/lovable-uploads/af.mp4"
