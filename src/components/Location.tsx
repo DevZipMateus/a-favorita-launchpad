@@ -83,27 +83,37 @@ const Location = () => {
           </div>
 
           <div className="relative">
-            <div className="bg-gray-200 rounded-2xl h-96 lg:h-full flex items-center justify-center">
+            <div className="bg-gray-200 rounded-2xl h-96 lg:h-full overflow-hidden">
               <iframe
-                src="https://maps.google.com/maps?q=Rua+São+Francisco&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full rounded-2xl"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4!2d-48.4!3d-1.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c6c0e5e7c3d%3A0x1234567890abcdef!2sRua%20S%C3%A3o%20Francisco!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                className="w-full h-full"
                 style={{ border: 0 }}
-                allowFullScreen={false}
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização A Favorita"
+                title="Mapa da Loja A Favorita - Rua São Francisco"
               ></iframe>
             </div>
             
             <div className="absolute bottom-4 left-4 right-4">
-              <a
-                href="https://maps.app.goo.gl/cqkH4GzbrCJfVb329"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-primary-500 text-white text-center py-3 px-6 rounded-lg hover:bg-primary-600 transition-colors duration-200 font-semibold shadow-lg"
-              >
-                Abrir no Google Maps
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href="https://www.google.com/maps/search/Rua+São+Francisco/@-1.4,-48.4,15z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-primary-500 text-white text-center py-3 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 font-semibold shadow-lg"
+                >
+                  Ver no Google Maps
+                </a>
+                <a
+                  href="https://www.google.com/maps/dir//Rua+São+Francisco/@-1.4,-48.4,15z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-secondary-500 text-white text-center py-3 px-4 rounded-lg hover:bg-secondary-600 transition-colors duration-200 font-semibold shadow-lg"
+                >
+                  Como Chegar
+                </a>
+              </div>
             </div>
           </div>
         </div>
