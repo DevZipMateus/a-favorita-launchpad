@@ -77,7 +77,7 @@ const Hero = () => {
                 muted
                 playsInline
                 className="w-full h-auto"
-                style={{ minHeight: '400px', maxHeight: '700px' }}
+                style={{ maxHeight: '500px' }}
               />
             </div>
           </div>
