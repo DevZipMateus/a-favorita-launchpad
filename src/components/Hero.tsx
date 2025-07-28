@@ -11,22 +11,34 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="min-h-screen relative bg-gradient-to-br from-primary-50 to-white flex items-center">
-      <div className="container mx-auto px-4 py-20">
+    <section 
+      id="inicio" 
+      className="min-h-screen relative flex items-center"
+      style={{
+        backgroundImage: `url('/lovable-uploads/752317e8-c616-4748-af0d-b0a7053145b4.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay para melhorar a legibilidade */}
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-800 font-poppins leading-tight">
-                A <span className="text-primary-500">FAVORITA</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white font-poppins leading-tight drop-shadow-lg">
+                A <span className="text-primary-300">FAVORITA</span>
               </h1>
-              <p className="text-xl text-gray-600 font-medium">
+              <p className="text-xl text-gray-100 font-medium drop-shadow-md">
                 Materiais de Construção & Agropecuária
               </p>
             </div>
 
-            <p className="text-lg text-gray-700 leading-relaxed max-w-2xl">
+            <p className="text-lg text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
               Tudo o que você precisa em materiais de construção, desde itens básicos até soluções completas para pequenas reformas e grandes obras. 
-              <strong className="text-primary-600"> Produtos de qualidade com preços acessíveis!</strong>
+              <strong className="text-primary-300"> Produtos de qualidade com preços acessíveis!</strong>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -38,7 +50,7 @@ const Hero = () => {
               </button>
               <button
                 onClick={() => scrollToSection('contato')}
-                className="border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-lg hover:bg-primary-50 transition-all duration-300 font-semibold text-lg"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-300 font-semibold text-lg backdrop-blur-sm"
               >
                 Fale Conosco
               </button>
@@ -46,18 +58,18 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 pt-4">
               <div className="flex items-center gap-3">
-                <Phone className="text-primary-500" size={20} />
-                <span className="text-gray-700">(91) 99171-3205</span>
+                <Phone className="text-primary-300" size={20} />
+                <span className="text-gray-100 drop-shadow-sm">(91) 99171-3205</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="text-primary-500" size={20} />
-                <span className="text-gray-700">afavoritaloja9@gmail.com</span>
+                <Mail className="text-primary-300" size={20} />
+                <span className="text-gray-100 drop-shadow-sm">afavoritaloja9@gmail.com</span>
               </div>
             </div>
           </div>
 
           <div className="relative animate-slide-in-right">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 space-y-6">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 space-y-6">
               <h3 className="text-2xl font-bold text-gray-800 text-center">Nossos Diferenciais</h3>
               
               <div className="grid gap-4">
@@ -100,7 +112,7 @@ const Hero = () => {
 
       <button
         onClick={() => scrollToSection('sobre')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-primary-500 hover:text-primary-600 transition-colors duration-300 animate-bounce"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-primary-300 transition-colors duration-300 animate-bounce drop-shadow-lg"
         aria-label="Scroll to next section"
       >
         <ChevronDown size={32} />
