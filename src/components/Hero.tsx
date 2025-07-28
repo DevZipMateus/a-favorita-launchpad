@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start pt-16">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl font-bold text-white font-poppins leading-tight drop-shadow-lg">
@@ -68,7 +68,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative animate-slide-in-right">
+          <div className="relative animate-slide-in-right mt-12">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <video
                 src="/lovable-uploads/af.mp4"
