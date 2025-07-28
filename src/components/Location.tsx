@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
@@ -49,10 +48,8 @@ const Location = () => {
                   <Clock className="text-primary-500 mt-1 flex-shrink-0" size={24} />
                   <div>
                     <h4 className="font-semibold text-gray-800 text-base sm:text-lg lg:text-xl xl:text-2xl mb-2">Horário de Funcionamento</h4>
-                    <div className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl space-y-1 sm:space-y-2">
-                      <p>Segunda a Sexta: 7:00 - 18:00</p>
-                      <p>Sábado: 7:00 - 17:00</p>
-                      <p>Domingo: 8:00 - 12:00</p>
+                    <div className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl">
+                      <p>Segunda a Sábado: 8:00 - 18:00</p>
                     </div>
                   </div>
                 </div>

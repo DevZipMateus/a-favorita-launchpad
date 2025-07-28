@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 
@@ -47,9 +46,7 @@ const Footer = () => {
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center sm:text-left">
             <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold mb-4 sm:mb-6 lg:mb-8">Horário</h4>
             <div className="space-y-2 sm:space-y-3 lg:space-y-4 text-gray-300 text-sm sm:text-base lg:text-lg xl:text-xl">
-              <p><span className="text-white">Seg - Sex:</span> 7:00 - 18:00</p>
-              <p><span className="text-white">Sábado:</span> 7:00 - 17:00</p>
-              <p><span className="text-white">Domingo:</span> 8:00 - 12:00</p>
+              <p><span className="text-white">Seg - Sáb:</span> 8:00 - 18:00</p>
             </div>
             
             <div className="pt-4 sm:pt-6 lg:pt-8">

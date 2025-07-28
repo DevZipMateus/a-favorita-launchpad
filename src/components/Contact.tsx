@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react';
 import ContactForm from './ContactForm';
@@ -95,9 +94,7 @@ const Contact = () => {
             <div className="bg-gradient-to-br from-primary-500 to-secondary-500 text-white p-6 sm:p-8 lg:p-10 xl:p-12 rounded-2xl shadow-xl">
               <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8">Horário de Atendimento</h3>
               <div className="space-y-3 sm:space-y-4 lg:space-y-6 text-sm sm:text-base lg:text-lg xl:text-xl">
-                <p><strong>Segunda a Sexta:</strong> 7:00 - 18:00</p>
-                <p><strong>Sábado:</strong> 7:00 - 17:00</p>
-                <p><strong>Domingo:</strong> 8:00 - 12:00</p>
+                <p><strong>Segunda a Sábado:</strong> 8:00 - 18:00</p>
               </div>
               <div className="mt-6 sm:mt-8 lg:mt-10 p-4 sm:p-6 lg:p-8 bg-white/20 rounded-lg">
                 <p className="text-sm sm:text-base lg:text-lg xl:text-xl opacity-95 leading-relaxed">
