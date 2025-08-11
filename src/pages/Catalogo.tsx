@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Search, X } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
+import { ArrowLeft, Search, X, ShoppingCart, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
 
   // Lista de todas as imagens da galeria
   const images = [
@@ -87,6 +89,30 @@ const Catalogo = () => {
     image.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleProductSelect = (productName: string, checked: boolean) => {
+    if (checked) {
+      setSelectedProducts(prev => [...prev, productName]);
+    } else {
+      setSelectedProducts(prev => prev.filter(name => name !== productName));
+    }
+  };
+
+  const sendListToWhatsApp = () => {
+    if (selectedProducts.length === 0) {
+      alert('Selecione pelo menos um produto para enviar');
+      return;
+    }
+
+    const productList = selectedProducts.map((product, index) => `${index + 1}. ${product}`).join('%0A');
+    const message = `Olá! Vim do site da A Favorita.%0A%0AGostaria de um orçamento para os seguintes produtos:%0A%0A${productList}%0A%0AObrigado!`;
+    const whatsappUrl = `https://wa.me/5591991713205?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const clearSelection = () => {
+    setSelectedProducts([]);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -117,12 +143,50 @@ const Catalogo = () => {
           </div>
         </div>
 
+        {/* Selected Products Summary */}
+        {selectedProducts.length > 0 && (
+          <div className="mb-8 bg-primary/10 p-4 rounded-lg">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-semibold text-lg flex items-center gap-2">
+                <ShoppingCart className="h-5 w-5" />
+                Produtos Selecionados ({selectedProducts.length})
+              </h3>
+              <div className="flex gap-2">
+                <Button onClick={clearSelection} variant="outline" size="sm">
+                  Limpar Lista
+                </Button>
+                <Button onClick={sendListToWhatsApp} className="bg-green-600 hover:bg-green-700" size="sm">
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Enviar Lista
+                </Button>
+              </div>
+            </div>
+            <div className="max-h-32 overflow-y-auto">
+              <ul className="text-sm space-y-1">
+                {selectedProducts.map((product, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-primary font-medium">{index + 1}.</span>
+                    {product}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         {/* Products Grid */}
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
           {filteredImages.map((image, index) => (
-            <Card key={index} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+            <Card key={index} className="group hover:shadow-lg transition-all duration-300">
               <CardContent className="p-3">
-                <div className="aspect-square overflow-hidden rounded-lg mb-3">
+                <div className="flex items-center justify-between mb-3">
+                  <Checkbox
+                    checked={selectedProducts.includes(image.name)}
+                    onCheckedChange={(checked) => handleProductSelect(image.name, checked as boolean)}
+                    className="z-10"
+                  />
+                </div>
+                <div className="aspect-square overflow-hidden rounded-lg mb-3 cursor-pointer">
                   <img
                     src={image.src}
                     alt={image.name}
@@ -147,13 +211,23 @@ const Catalogo = () => {
         {/* Contact CTA */}
         <div className="mt-12 bg-gradient-to-r from-primary to-secondary text-white p-8 rounded-2xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Interessado em algum produto?</h2>
-          <p className="text-lg mb-6 opacity-95">Entre em contato conosco para mais informações e orçamentos</p>
-          <Button
-            onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
-            className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-          >
-            Falar no WhatsApp
-          </Button>
+          <p className="text-lg mb-6 opacity-95">Selecione os produtos desejados e envie sua lista de interesse</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={sendListToWhatsApp}
+              disabled={selectedProducts.length === 0}
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg font-semibold disabled:opacity-50"
+            >
+              <MessageCircle className="h-5 w-5 mr-2" />
+              Enviar Lista ({selectedProducts.length})
+            </Button>
+            <Button
+              onClick={() => window.open('https://wa.me/5591991713205', '_blank')}
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
+            >
+              Falar no WhatsApp
+            </Button>
+          </div>
         </div>
       </div>
 
