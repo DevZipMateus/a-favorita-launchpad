@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ChevronDown, Phone, Mail } from 'lucide-react';
 
@@ -26,7 +25,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 sm:py-20 lg:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
-          <div className="space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in text-center lg:text-left order-1 lg:order-1">
             <div className="space-y-3 sm:space-y-4 lg:space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white font-poppins leading-tight drop-shadow-lg">
                 <span className="text-primary-500">A</span> <span className="text-primary-300">FAVORITA</span>
@@ -68,7 +67,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative animate-slide-in-right order-first lg:order-last">
+          <div className="relative animate-slide-in-right order-2 lg:order-last">
             <div className="rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md sm:max-w-lg lg:max-w-none">
               <video
                 src="/lovable-uploads/af.mp4"
