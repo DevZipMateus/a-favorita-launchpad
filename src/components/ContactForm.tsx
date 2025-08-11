@@ -24,12 +24,12 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white p-6 sm:p-8 lg:p-10 xl:p-12 rounded-2xl shadow-xl">
-      <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 lg:mb-10">Fale Conosco</h3>
+    <div className="bg-white p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 2xl:p-12 rounded-xl xs:rounded-2xl shadow-xl">
+      <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 mb-4 xs:mb-5 sm:mb-6 md:mb-8 lg:mb-10">Fale Conosco</h3>
       
-      <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 lg:space-y-10">
+      <form onSubmit={handleSubmit} className="space-y-4 xs:space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10">
         <div>
-          <label htmlFor="name" className="block text-sm sm:text-base lg:text-lg xl:text-xl font-medium text-gray-700 mb-2 sm:mb-3 lg:mb-4">
+          <label htmlFor="name" className="block text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-700 mb-2 xs:mb-2.5 sm:mb-3 md:mb-4">
             Nome Completo *
           </label>
           <input
@@ -39,13 +39,13 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleInputChange}
             required
-            className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base lg:text-lg xl:text-xl"
+            className="w-full px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl"
             placeholder="Seu nome completo"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm sm:text-base lg:text-lg xl:text-xl font-medium text-gray-700 mb-2 sm:mb-3 lg:mb-4">
+          <label htmlFor="email" className="block text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-700 mb-2 xs:mb-2.5 sm:mb-3 md:mb-4">
             E-mail *
           </label>
           <input
@@ -55,13 +55,13 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleInputChange}
             required
-            className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base lg:text-lg xl:text-xl"
+            className="w-full px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl"
             placeholder="seu@email.com"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm sm:text-base lg:text-lg xl:text-xl font-medium text-gray-700 mb-2 sm:mb-3 lg:mb-4">
+          <label htmlFor="phone" className="block text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-700 mb-2 xs:mb-2.5 sm:mb-3 md:mb-4">
             Telefone
           </label>
           <input
@@ -70,13 +70,13 @@ const ContactForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base lg:text-lg xl:text-xl"
+            className="w-full px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl"
             placeholder="(91) 99999-9999"
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm sm:text-base lg:text-lg xl:text-xl font-medium text-gray-700 mb-2 sm:mb-3 lg:mb-4">
+          <label htmlFor="message" className="block text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-700 mb-2 xs:mb-2.5 sm:mb-3 md:mb-4">
             Mensagem *
           </label>
           <textarea
@@ -86,16 +86,16 @@ const ContactForm = () => {
             onChange={handleInputChange}
             required
             rows={4}
-            className="w-full px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none text-sm sm:text-base lg:text-lg xl:text-xl"
+            className="w-full px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 lg:py-5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl"
             placeholder="Digite sua mensagem aqui..."
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-primary-500 text-white py-4 sm:py-5 lg:py-6 px-6 sm:px-8 lg:px-10 rounded-lg hover:bg-primary-600 transition-all duration-200 font-semibold flex items-center justify-center gap-3 sm:gap-4 lg:gap-5 text-base sm:text-lg lg:text-xl xl:text-2xl shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="w-full bg-primary-500 text-white py-3 xs:py-3.5 sm:py-4 md:py-5 lg:py-6 px-4 xs:px-5 sm:px-6 md:px-8 lg:px-10 rounded-lg hover:bg-primary-600 transition-all duration-200 font-semibold flex items-center justify-center gap-2 xs:gap-3 sm:gap-4 md:gap-5 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl shadow-lg hover:shadow-xl transform hover:scale-105"
         >
-          <Send size={20} />
+          <Send className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
           Enviar via WhatsApp
         </button>
       </form>
