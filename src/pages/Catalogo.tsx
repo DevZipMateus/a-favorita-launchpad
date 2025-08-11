@@ -14,6 +14,7 @@ const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<SelectedProduct[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Lista de todas as imagens da galeria
   const images = [
@@ -172,6 +173,89 @@ const Catalogo = () => {
         </div>
       </header>
 
+      {/* Floating Cart Button */}
+      {selectedProducts.length > 0 && (
+        <div className="fixed top-20 right-4 z-50">
+          <Button
+            onClick={() => setIsCartOpen(!isCartOpen)}
+            className="bg-primary hover:bg-primary/90 text-white rounded-full p-3 shadow-lg"
+          >
+            <ShoppingCart className="h-6 w-6" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">
+              {getTotalItems()}
+            </span>
+          </Button>
+        </div>
+      )}
+
+      {/* Floating Cart Panel */}
+      {isCartOpen && selectedProducts.length > 0 && (
+        <div className="fixed top-20 right-16 z-50 w-80 bg-white border border-border rounded-lg shadow-xl p-4">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="font-semibold text-lg flex items-center gap-2">
+              <ShoppingCart className="h-5 w-5" />
+              Lista ({getTotalItems()} itens)
+            </h3>
+            <Button
+              onClick={() => setIsCartOpen(false)}
+              variant="outline"
+              size="sm"
+              className="h-8 w-8 p-0"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+          
+          <div className="max-h-64 overflow-y-auto space-y-2 mb-4">
+            {selectedProducts.map((product, index) => (
+              <div key={index} className="flex items-center justify-between bg-gray-50 p-2 rounded-lg">
+                <div className="flex-1 text-sm">
+                  <span className="text-primary font-medium">{index + 1}.</span>
+                  <span className="ml-2">{product.name}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Button
+                    onClick={() => handleQuantityChange(product.name, product.quantity - 1)}
+                    variant="outline"
+                    size="sm"
+                    className="h-6 w-6 p-0"
+                  >
+                    <Minus className="h-3 w-3" />
+                  </Button>
+                  <span className="font-medium text-sm w-6 text-center">{product.quantity}</span>
+                  <Button
+                    onClick={() => handleQuantityChange(product.name, product.quantity + 1)}
+                    variant="outline"
+                    size="sm"
+                    className="h-6 w-6 p-0"
+                  >
+                    <Plus className="h-3 w-3" />
+                  </Button>
+                  <Button
+                    onClick={() => handleRemoveProduct(product.name)}
+                    variant="outline"
+                    size="sm"
+                    className="h-6 w-6 p-0 text-red-600 hover:text-red-700 ml-1"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Button onClick={clearSelection} variant="outline" size="sm" className="w-full">
+              Limpar Lista
+            </Button>
+            <Button onClick={sendListToWhatsApp} className="bg-green-600 hover:bg-green-700 w-full" size="sm">
+              <MessageCircle className="h-4 w-4 mr-2" />
+              Enviar Lista
+            </Button>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-4 py-8">
         {/* Search Bar */}
         <div className="mb-8 max-w-md mx-auto">
@@ -186,64 +270,6 @@ const Catalogo = () => {
             />
           </div>
         </div>
-
-        {/* Selected Products Summary */}
-        {selectedProducts.length > 0 && (
-          <div className="mb-8 bg-primary/10 p-4 rounded-lg">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold text-lg flex items-center gap-2">
-                <ShoppingCart className="h-5 w-5" />
-                Lista de Produtos ({getTotalItems()} itens)
-              </h3>
-              <div className="flex gap-2">
-                <Button onClick={clearSelection} variant="outline" size="sm">
-                  Limpar Lista
-                </Button>
-                <Button onClick={sendListToWhatsApp} className="bg-green-600 hover:bg-green-700" size="sm">
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Enviar Lista
-                </Button>
-              </div>
-            </div>
-            <div className="max-h-48 overflow-y-auto space-y-2">
-              {selectedProducts.map((product, index) => (
-                <div key={index} className="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm">
-                  <div className="flex-1">
-                    <span className="text-primary font-medium">{index + 1}.</span>
-                    <span className="ml-2">{product.name}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      onClick={() => handleQuantityChange(product.name, product.quantity - 1)}
-                      variant="outline"
-                      size="sm"
-                      className="h-8 w-8 p-0"
-                    >
-                      <Minus className="h-3 w-3" />
-                    </Button>
-                    <span className="font-medium w-8 text-center">{product.quantity}</span>
-                    <Button
-                      onClick={() => handleQuantityChange(product.name, product.quantity + 1)}
-                      variant="outline"
-                      size="sm"
-                      className="h-8 w-8 p-0"
-                    >
-                      <Plus className="h-3 w-3" />
-                    </Button>
-                    <Button
-                      onClick={() => handleRemoveProduct(product.name)}
-                      variant="outline"
-                      size="sm"
-                      className="h-8 w-8 p-0 text-red-600 hover:text-red-700"
-                    >
-                      <Trash2 className="h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
