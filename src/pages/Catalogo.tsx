@@ -1,15 +1,19 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { ArrowLeft, Search, X, ShoppingCart, MessageCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { ArrowLeft, Search, X, ShoppingCart, MessageCircle, Plus, Minus, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+interface SelectedProduct {
+  name: string;
+  quantity: number;
+}
 
 const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+  const [selectedProducts, setSelectedProducts] = useState<SelectedProduct[]>([]);
 
   // Lista de todas as imagens da galeria
   const images = [
@@ -89,12 +93,46 @@ const Catalogo = () => {
     image.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleProductSelect = (productName: string, checked: boolean) => {
-    if (checked) {
-      setSelectedProducts(prev => [...prev, productName]);
+  const handleAddProduct = (productName: string) => {
+    const existingProduct = selectedProducts.find(p => p.name === productName);
+    if (existingProduct) {
+      setSelectedProducts(prev => 
+        prev.map(p => 
+          p.name === productName 
+            ? { ...p, quantity: p.quantity + 1 }
+            : p
+        )
+      );
     } else {
-      setSelectedProducts(prev => prev.filter(name => name !== productName));
+      setSelectedProducts(prev => [...prev, { name: productName, quantity: 1 }]);
     }
+  };
+
+  const handleQuantityChange = (productName: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      setSelectedProducts(prev => prev.filter(p => p.name !== productName));
+    } else {
+      setSelectedProducts(prev => 
+        prev.map(p => 
+          p.name === productName 
+            ? { ...p, quantity: newQuantity }
+            : p
+        )
+      );
+    }
+  };
+
+  const handleRemoveProduct = (productName: string) => {
+    setSelectedProducts(prev => prev.filter(p => p.name !== productName));
+  };
+
+  const isProductSelected = (productName: string) => {
+    return selectedProducts.some(p => p.name === productName);
+  };
+
+  const getProductQuantity = (productName: string) => {
+    const product = selectedProducts.find(p => p.name === productName);
+    return product ? product.quantity : 0;
   };
 
   const sendListToWhatsApp = () => {
@@ -103,7 +141,9 @@ const Catalogo = () => {
       return;
     }
 
-    const productList = selectedProducts.map((product, index) => `${index + 1}. ${product}`).join('%0A');
+    const productList = selectedProducts.map((product, index) => 
+      `${index + 1}. ${product.name} - Quantidade: ${product.quantity}`
+    ).join('%0A');
     const message = `Olá! Vim do site da A Favorita.%0A%0AGostaria de um orçamento para os seguintes produtos:%0A%0A${productList}%0A%0AObrigado!`;
     const whatsappUrl = `https://wa.me/5591991713205?text=${message}`;
     window.open(whatsappUrl, '_blank');
@@ -111,6 +151,10 @@ const Catalogo = () => {
 
   const clearSelection = () => {
     setSelectedProducts([]);
+  };
+
+  const getTotalItems = () => {
+    return selectedProducts.reduce((total, product) => total + product.quantity, 0);
   };
 
   return (
@@ -149,7 +193,7 @@ const Catalogo = () => {
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-semibold text-lg flex items-center gap-2">
                 <ShoppingCart className="h-5 w-5" />
-                Produtos Selecionados ({selectedProducts.length})
+                Lista de Produtos ({getTotalItems()} itens)
               </h3>
               <div className="flex gap-2">
                 <Button onClick={clearSelection} variant="outline" size="sm">
@@ -161,15 +205,42 @@ const Catalogo = () => {
                 </Button>
               </div>
             </div>
-            <div className="max-h-32 overflow-y-auto">
-              <ul className="text-sm space-y-1">
-                {selectedProducts.map((product, index) => (
-                  <li key={index} className="flex items-center gap-2">
+            <div className="max-h-48 overflow-y-auto space-y-2">
+              {selectedProducts.map((product, index) => (
+                <div key={index} className="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm">
+                  <div className="flex-1">
                     <span className="text-primary font-medium">{index + 1}.</span>
-                    {product}
-                  </li>
-                ))}
-              </ul>
+                    <span className="ml-2">{product.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      onClick={() => handleQuantityChange(product.name, product.quantity - 1)}
+                      variant="outline"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Minus className="h-3 w-3" />
+                    </Button>
+                    <span className="font-medium w-8 text-center">{product.quantity}</span>
+                    <Button
+                      onClick={() => handleQuantityChange(product.name, product.quantity + 1)}
+                      variant="outline"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Plus className="h-3 w-3" />
+                    </Button>
+                    <Button
+                      onClick={() => handleRemoveProduct(product.name)}
+                      variant="outline"
+                      size="sm"
+                      className="h-8 w-8 p-0 text-red-600 hover:text-red-700"
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -179,13 +250,6 @@ const Catalogo = () => {
           {filteredImages.map((image, index) => (
             <Card key={index} className="group hover:shadow-lg transition-all duration-300">
               <CardContent className="p-3">
-                <div className="flex items-center justify-between mb-3">
-                  <Checkbox
-                    checked={selectedProducts.includes(image.name)}
-                    onCheckedChange={(checked) => handleProductSelect(image.name, checked as boolean)}
-                    className="z-10"
-                  />
-                </div>
                 <div className="aspect-square overflow-hidden rounded-lg mb-3 cursor-pointer">
                   <img
                     src={image.src}
@@ -194,9 +258,41 @@ const Catalogo = () => {
                     onClick={() => setSelectedImage(image.src)}
                   />
                 </div>
-                <h3 className="text-sm font-medium text-foreground line-clamp-2 leading-tight">
+                <h3 className="text-sm font-medium text-foreground line-clamp-2 leading-tight mb-3">
                   {image.name}
                 </h3>
+                
+                {/* Botão de adicionar ou controles de quantidade */}
+                {!isProductSelected(image.name) ? (
+                  <Button
+                    onClick={() => handleAddProduct(image.name)}
+                    className="w-full"
+                    size="sm"
+                  >
+                    <Plus className="h-4 w-4 mr-1" />
+                    Adicionar
+                  </Button>
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <Button
+                      onClick={() => handleQuantityChange(image.name, getProductQuantity(image.name) - 1)}
+                      variant="outline"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Minus className="h-3 w-3" />
+                    </Button>
+                    <span className="font-medium text-sm">{getProductQuantity(image.name)}</span>
+                    <Button
+                      onClick={() => handleQuantityChange(image.name, getProductQuantity(image.name) + 1)}
+                      variant="outline"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Plus className="h-3 w-3" />
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -219,7 +315,7 @@ const Catalogo = () => {
               className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg font-semibold disabled:opacity-50"
             >
               <MessageCircle className="h-5 w-5 mr-2" />
-              Enviar Lista ({selectedProducts.length})
+              Enviar Lista ({getTotalItems()})
             </Button>
             <Button
               onClick={() => window.open('https://wa.me/5591991713205', '_blank')}
