@@ -1,8 +1,8 @@
-
 import React, { useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from 'react-router-dom';
 
 const ProductCarousel = () => {
   const images = [
@@ -93,28 +93,25 @@ const ProductCarousel = () => {
 
         <div className="text-center mt-12 sm:mt-16 lg:mt-20">
           <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-8 sm:p-10 lg:p-12 xl:p-16 rounded-2xl max-w-5xl mx-auto shadow-xl">
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8">Visite Nossa Loja!</h3>
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8">Explore Nosso Catálogo!</h3>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 sm:mb-8 lg:mb-10 opacity-95 leading-relaxed">
-              Venha conhecer nossa ampla variedade de produtos e aproveite nossas ofertas especiais.
+              Veja todos os nossos produtos e encontre exatamente o que você precisa para sua obra.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center">
+              <Link
+                to="/catalogo"
+                className="bg-white text-primary-500 px-8 sm:px-10 lg:px-12 xl:px-16 py-4 sm:py-5 lg:py-6 rounded-lg hover:bg-gray-100 transition-all duration-200 font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Ver Catálogo Completo
+              </Link>
               <button
                 onClick={() => {
                   const element = document.getElementById('contato');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-white text-primary-500 px-8 sm:px-10 lg:px-12 xl:px-16 py-4 sm:py-5 lg:py-6 rounded-lg hover:bg-gray-100 transition-all duration-200 font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Entre em Contato
-              </button>
-              <button
-                onClick={() => {
-                  const element = document.getElementById('localizacao');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
                 className="border-2 border-white text-white px-8 sm:px-10 lg:px-12 xl:px-16 py-4 sm:py-5 lg:py-6 rounded-lg hover:bg-white hover:text-primary-500 transition-all duration-200 font-semibold text-base sm:text-lg lg:text-xl xl:text-2xl w-full sm:w-auto"
               >
-                Ver Localização
+                Entre em Contato
               </button>
             </div>
           </div>
