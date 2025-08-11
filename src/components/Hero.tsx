@@ -15,11 +15,14 @@ const Hero = () => {
       id="inicio" 
       className="min-h-screen relative flex items-center"
       style={{
-        backgroundColor: '#06264a'
+        backgroundImage: 'url(/lovable-uploads/78a8e5eb-d863-4f39-9338-c75f04ef3f03.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       {/* Overlay para melhorar a legibilidade */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 sm:py-20 lg:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
