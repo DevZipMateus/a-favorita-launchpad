@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -43,7 +44,7 @@ const Header = () => {
             <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 lg:space-x-6">
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="text-xs sm:text-sm">(11) 4002-8922</span>
+                <span className="text-xs sm:text-sm">(91) 99171-3205</span>
               </div>
               <div className="flex items-center space-x-1 sm:space-x-2">
                 <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
