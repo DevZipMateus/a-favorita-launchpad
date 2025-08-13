@@ -10,7 +10,7 @@ const Location = () => {
             Nossa <span className="text-primary-500">Localização</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
-            Visite nossa loja na Rua São Francisco. Estamos sempre prontos para atendê-lo!
+            Visite nossa loja na Rua São Francisco em Anapu-Pará. Estamos sempre prontos para atendê-lo!
           </p>
         </div>
 
@@ -24,7 +24,7 @@ const Location = () => {
                   <MapPin className="text-primary-500 mt-1 flex-shrink-0" size={24} />
                   <div>
                     <h4 className="font-semibold text-gray-800 text-base sm:text-lg lg:text-xl xl:text-2xl mb-2">Endereço</h4>
-                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl">Rua São Francisco</p>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl">Rua São Francisco, Anapu-Pará</p>
                   </div>
                 </div>
 
@@ -88,7 +88,7 @@ const Location = () => {
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa da Loja A Favorita - Rua São Francisco"
+                title="Mapa da Loja A Favorita - Rua São Francisco, Anapu-Pará"
               ></iframe>
             </div>
             
