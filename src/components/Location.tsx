@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
@@ -83,20 +82,20 @@ const Location = () => {
           <div className="relative order-1 lg:order-2">
             <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-full overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.321794084367!2d-48.504081!3d-1.455833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c3b6c5e7c3d%3A0x7c9f8e5d4b2a1c6f!2sRua%20S%C3%A3o%20Francisco%2C%20Bel%C3%A9m%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1692834567890!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4!2d-48.4!3d-1.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c6c0e5e7c3d%3A0x1234567890abcdef!2sRua%20S%C3%A3o%20Francisco!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
                 className="w-full h-full"
                 style={{ border: 0 }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa da Loja A Favorita - Rua São Francisco, Belém - PA"
+                title="Mapa da Loja A Favorita - Rua São Francisco"
               ></iframe>
             </div>
             
             <div className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-3 sm:left-4 lg:left-6 right-3 sm:right-4 lg:right-6">
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4">
                 <a
-                  href="https://www.google.com/maps/search/Rua+São+Francisco,+Belém+-+PA/@-1.455833,-48.504081,15z"
+                  href="https://www.google.com/maps/search/Rua+São+Francisco/@-1.4,-48.4,15z"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 bg-primary-500 text-white text-center py-3 sm:py-4 lg:py-5 px-4 sm:px-6 lg:px-8 rounded-lg hover:bg-primary-600 transition-all duration-200 font-semibold shadow-lg text-sm sm:text-base lg:text-lg xl:text-xl"
@@ -104,7 +103,7 @@ const Location = () => {
                   Ver no Google Maps
                 </a>
                 <a
-                  href="https://www.google.com/maps/dir//Rua+São+Francisco,+Belém+-+PA/@-1.455833,-48.504081,15z"
+                  href="https://www.google.com/maps/dir//Rua+São+Francisco/@-1.4,-48.4,15z"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 bg-secondary-500 text-white text-center py-3 sm:py-4 lg:py-5 px-4 sm:px-6 lg:px-8 rounded-lg hover:bg-secondary-600 transition-all duration-200 font-semibold shadow-lg text-sm sm:text-base lg:text-lg xl:text-xl"
